@@ -2,7 +2,7 @@ var app = angular.module("demo", ['angular-baidu-map']);
 
 app.controller('test', ['$scope', function ($scope) {
 
-    $scope.map1Ready = function (map) {
+    $scope.mapReady = function (map) {
         map.enableScrollWheelZoom();
         map.addControl(new BMap.NavigationControl());
         map.addControl(new BMap.ScaleControl());
