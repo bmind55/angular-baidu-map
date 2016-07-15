@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>angularjs 百度地图api by yupeng957</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">angularjs 百度地图api</h1>
+      <h2 class="project-tagline">angularjs 百度地图api</h2>
+      <a href="https://github.com/yupeng957/angular-baidu-map" class="btn">View on GitHub</a>
+      <a href="https://github.com/yupeng957/angular-baidu-map/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/yupeng957/angular-baidu-map/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Started，</h1>
+
+<p><strong>(1)</strong> Include angular.min.js to your html</p>
+
+<p><strong>(2)</strong> Include dist/angular-baidu-map.min.js to your html</p>
+
+<p><strong>(3)</strong> Add <code>'angular-baidu-map'</code> to your main module's list of dependencies.</p>
+
+<p><strong>(4)</strong> html markup</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;!doctype html&gt;
+&lt;<span class="pl-ent">html</span> <span class="pl-e">ng-app</span>=<span class="pl-s"><span class="pl-pds">"</span>demo<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">head</span>&gt;
+
+&lt;/<span class="pl-ent">head</span>&gt;
+&lt;<span class="pl-ent">body</span>&gt;
+
+    ...
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>angular.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>dist/angular-baidu-map.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+    ...
+
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">        <span class="pl-k">var</span> app <span class="pl-k">=</span> <span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">"</span>demo<span class="pl-pds">"</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>angular-baidu-map<span class="pl-pds">'</span></span>]);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-smi">app</span>.<span class="pl-en">controller</span>(<span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>$scope<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$scope</span>) {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">            <span class="pl-smi">$scope</span>.<span class="pl-en">mapReady</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">map</span>) {</span>
+<span class="pl-s1">                <span class="pl-smi">map</span>.<span class="pl-en">enableScrollWheelZoom</span>();</span>
+<span class="pl-s1">                <span class="pl-smi">map</span>.<span class="pl-en">addControl</span>(<span class="pl-k">new</span> <span class="pl-en">BMap.NavigationControl</span>());</span>
+<span class="pl-s1">                <span class="pl-smi">map</span>.<span class="pl-en">addControl</span>(<span class="pl-k">new</span> <span class="pl-en">BMap.ScaleControl</span>());</span>
+<span class="pl-s1">                <span class="pl-smi">map</span>.<span class="pl-en">addControl</span>(<span class="pl-k">new</span> <span class="pl-en">BMap.OverviewMapControl</span>());</span>
+<span class="pl-s1">                <span class="pl-smi">map</span>.<span class="pl-en">addControl</span>(<span class="pl-k">new</span> <span class="pl-en">BMap.MapTypeControl</span>());</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">                <span class="pl-k">var</span> point <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BMap.Point</span>(<span class="pl-c1">116.404</span>, <span class="pl-c1">39.915</span>);</span>
+<span class="pl-s1">                <span class="pl-smi">map</span>.<span class="pl-en">centerAndZoom</span>(point, <span class="pl-c1">15</span>);</span>
+<span class="pl-s1">                <span class="pl-k">var</span> marker <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">BMap.Marker</span>(point);</span>
+<span class="pl-s1">                <span class="pl-smi">map</span>.<span class="pl-en">addOverlay</span>(marker);</span>
+<span class="pl-s1">            };</span>
+<span class="pl-s1">        }]);</span>
+<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+    ...
+
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">baidu-map</span>=<span class="pl-s"><span class="pl-pds">"</span>your baidu ak<span class="pl-pds">"</span></span> <span class="pl-e">map-ready</span>=<span class="pl-s"><span class="pl-pds">"</span>mapReadyCallback(map)<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>height: 300px<span class="pl-pds">"</span></span>&gt;
+
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/yupeng957/angular-baidu-map">angularjs 百度地图api</a> is maintained by <a href="https://github.com/yupeng957">yupeng957</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
