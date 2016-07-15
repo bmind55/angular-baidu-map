@@ -22,10 +22,18 @@ module.exports = function (grunt) {
             lib: ['src/*.js']
         },
 
+        uglify: {
+            app: {
+                files: {
+                    'dist/angular-baidu-map.min.js': ['src/angular-baidu-map.js']
+                }
+            }
+        },
+
         watch: {
             scripts: {
                 files: ['src/**/*.js'],
-                tasks: ['jshint'],
+                tasks: ['jshint', 'uglify'],
                 options: {
                     spawn: false
                 }
@@ -33,9 +41,11 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    grunt.registerTask('default', ['jshint', 'watch']);
+    grunt.registerTask('default', ['watch']);
 };
