@@ -1,4 +1,6 @@
-#Get Started，
+# Get Started
+
+MIT License
 
 **(1)** Include angular.min.js to your html
 
