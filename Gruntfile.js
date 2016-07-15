@@ -16,7 +16,8 @@ module.exports = function (grunt) {
                 undef: true,
                 unused: true,
                 globals: {
-                    angular: true
+                    angular: true,
+                    console: true
                 }
             },
             lib: ['src/*.js']
