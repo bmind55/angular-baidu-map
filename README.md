@@ -42,7 +42,7 @@
     </script>
     ...
     
-    <div baidu-map="your baidu ak" map-ready="mapReadyCallback(map)" style="height: 300px">
+    <div baidu-map="your baidu ak" map-ready="mapReady(map)" style="height: 300px">
 
     </div>
 </body>
