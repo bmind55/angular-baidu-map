@@ -1,0 +1,29 @@
+{
+  "name": "angular-baidu-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yupeng957/angular-baidu-map.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yupeng957/angular-baidu-map/issues"
+  },
+  "homepage": "https://github.com/yupeng957/angular-baidu-map#readme",
+  "devDependencies": {
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
+}
