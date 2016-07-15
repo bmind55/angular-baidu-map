@@ -14,10 +14,10 @@ module.exports = function (grunt) {
                 nonbsp: true,
                 strict: true,
                 undef: true,
-                unused: true,
                 globals: {
                     angular: true,
-                    console: true
+                    console: true,
+                    BMap: true
                 }
             },
             lib: ['src/*.js']

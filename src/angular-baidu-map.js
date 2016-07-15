@@ -6,10 +6,15 @@
     app.directive('baiduMap', ['$window', function ($window) {
         return {
             restrict: 'A',
-            link: function () {
+            scope: {
+                mapReady: '&'
+            },
+            link: function (scope, element, attrs) {
                 $window.baiduMapLoaded = function () {
-                    console.log('done');
+                    var map = new BMap.Map(element[0]);
+                    scope.mapReady({map: map});
                 };
+
                 var script = document.createElement("script");
                 script.src = "http://api.map.baidu.com/api?v=2.0&ak=G2zm7GgGGesyLUEoUfVF2jheDGRrkecU&callback=baiduMapLoaded";
                 document.body.appendChild(script);
