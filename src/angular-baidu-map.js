@@ -14,9 +14,8 @@
                     var map = new BMap.Map(element[0]);
                     scope.mapReady({map: map});
                 };
-
                 var script = document.createElement("script");
-                script.src = "http://api.map.baidu.com/api?v=2.0&ak=G2zm7GgGGesyLUEoUfVF2jheDGRrkecU&callback=baiduMapLoaded";
+                script.src = 'http://api.map.baidu.com/api?v=2.0&ak=' + attrs.baiduMap + '&callback=baiduMapLoaded';
                 document.body.appendChild(script);
             }
         };
